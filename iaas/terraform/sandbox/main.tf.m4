@@ -15,12 +15,11 @@ resource "cloudstack_instance" "iaas-sb-docker-host" {
     # Global configturation
     network = "YOUR_NETWORK"
     template = "YOUR_TEMPLATE"
-    user_data = "${file(\"/vagrant/iaas/config/cloud-init/cloud-init.json\")}"
-    zone = "bureautique"
+    user_data = "${file(\"/iaas/provisioning/common/cloud-init/cloud-init.json\")}"
+    zone = "YOUR_ZONE"
 
     # All services definition
-    include(../cloudstack-common/system.tf.m4)
-    include(../cloudstack-common/docker.tf.m4)
-    include(../cloudstack-common/custom-services.tf.m4)
+    include(/terraform/common/system.tf.m4)
+    include(/terraform/common/docker.tf.m4)
 
 }
