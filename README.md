@@ -22,3 +22,10 @@ In addition this example is mainly built around:
 - ```iaas``` for remote docker host creation and setup with IaaS and cloudstack API.
 - ```docker``` remote docker host definitions to be able to connect to them with docker command *(corresponds to IaaS definitions)*
 - ```init.sh.d``` toghether with ```init.sh``` the scripts to execute dynamically to enable all extension stuff
+
+## IaaS commands
+
+- ```tf``` All TERRAFORM commands
+- ```ip``` Show ip of the current instance *(depending dk host)* on the iaas
+- ```ssh``` Ssh inside the current IaaS instance *(depending dk host)* with default keys
+- ```help``` Get hep for the specified command"
