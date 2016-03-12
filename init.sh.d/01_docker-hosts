@@ -1,0 +1,14 @@
+# ============================================================
+# Additional docker hosts definition
+# ============================================================
+
+# -------------------------------------------------------------------
+# Import custom elements in a dynamic way
+#
+# NOTE: prefix the files with a number to manage order
+# -------------------------------------------------------------------
+for host_file in $DKTB_EXTENSION_DIR/docker/hosts/* ; do
+    if [ -f $host_file ]; then 
+        source $host_file
+    fi
+done
