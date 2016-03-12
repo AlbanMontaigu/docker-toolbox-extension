@@ -1,6 +1,0 @@
-variable "api_key" { 
-    default = "YOUR_IAAS-V0_API_KEY_HERE"
-}
-variable "secret_key" {
-    default = "YOUR_IAAS-V0_SECRET_KEY_HERE"
-}

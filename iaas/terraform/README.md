@@ -1,5 +1,7 @@
 # Terraform files for remote docker host management on the IaaS (cloudstack based)
 
 - ```common``` for common file between different IaaS configurations
-- ```sandbox``` for the IaaS sandbox
-- ```v0``` for the IaaS v0
+- ```sb_1``` for the IaaS sandbox column 1
+- ```sb_2``` for the IaaS sandbox column 2
+- ```v0_1``` for the IaaS v0 column 1
+- ```v0_2``` for the IaaS v0 column 2
