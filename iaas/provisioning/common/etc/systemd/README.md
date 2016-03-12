@@ -1,3 +1,3 @@
-# Proxy service in the remote docker host
+# System customisation on the IaaS remote host
 
-- ```dk-redsocks.service``` proxy service added to remote docker host system to manage proxy issues
+- ```docker.service.d``` docker service customisation *(like proxy)*
