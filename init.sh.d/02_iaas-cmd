@@ -10,17 +10,17 @@
 ia_tf(){
 
     # Check requirements
-    if [ ia_tf_check -gt 0 ] ; then
+    if [[ ia_tf_check -gt 0 ]] ; then
         return 1
     fi
 
     # Terraform must be run @local
     DOCKER_HOST="$(dk_host_local)" docker run --rm \
-                    -v "$DKTB_EXTENSION_DIR/iaas":/iaas \
-                    -v "$DKTB_EXTENSION_DIR/iaas/terraform/$(dk host)":/data \
-                    -e "http_proxy=$(dk_host_current_http_proxy)" \
-                    -e "https_proxy=$(dk_host_current_https_proxy)" \
-                    -e "no_proxy=$(dk_host_current_no_proxy)" \
+                    -v "/vagrant/iaas/terraform/$(dk_host_id)":/data \
+                    -e "http_proxy=$http_proxy" \
+                    -e "https_proxy=$https_proxy" \
+                    -e "no_proxy=$no_proxy" \
+                    --volumes-from docker-toolbox \
                     amontaigu/terraform "$@"
 }
 
@@ -33,26 +33,25 @@ ia_tf_help(){
 
 # Checks if TERRAFORM requirements are here
 ia_tf_check(){
-    IA_ROOT_DIR="$DKTB_EXTENSION_DIR/iaas"
-    IA_PROVISIONING_DIR="$IA_ROOT_DIR/provisioning"
-    IA_TF_DIR="$IA_ROOT_DIR/terraform"
-    IA_TF_HOST_DIR="$IA_ROOT_DIR/terraform/$(dk host)"
+    VAGRANT_IA_ROOT_DIR="/vagrant/iaas"
+    VAGRANT_IA_TF_HOST_DIR="$VAGRANT_IA_ROOT_DIR/terraform/$(dk host)"
+    DKTB_EXTENSION_IA_ROOT_DIR="$DKTB_EXTENSION_DIR/iaas"
 
-    # Provisionning dir requested
-    if [ ! -d $IA_PROVISIONING_DIR ] ; then
-        echo "[WARN] $IA_PROVISIONING_DIR not found"
+    # Vagrant iaas dir requested
+    if [ ! -d $VAGRANT_IA_ROOT_DIR ] ; then
+        echo "[WARN] $VAGRANT_IA_ROOT_DIR not found"
         return 1
     fi
 
-    # Terraform dir requested
-    if [ ! -d $IA_TF_DIR ] ; then
-        echo "[WARN] $IA_TF_DIR not found"
+    # Vagrant iaas specific terraform host dir requested
+    if [ ! -d $VAGRANT_IA_TF_HOST_DIR ] ; then
+        echo "[WARN] $VAGRANT_IA_TF_HOST_DIR not found"
         return 2
     fi
 
-    # Terraform specific host dir requested
-    if [ ! -d $IA_TF_HOST_DIR ] ; then
-        echo "[WARN] $IA_TF_HOST_DIR not found"
+    # Docker iaas toolbox extension dir requested
+    if [ ! -d $DKTB_EXTENSION_IA_ROOT_DIR ] ; then
+        echo "[WARN] $DKTB_EXTENSION_IA_ROOT_DIR not found"
         return 3
     fi
 
@@ -78,7 +77,7 @@ ia_ip_help(){
 
 # Ssh into IaaS instance with default key and current ip
 ia_ssh(){
-    ssh -o StrictHostKeyChecking=no cloud@\$(ia_ip)
+    ssh -o StrictHostKeyChecking=no cloud@$(ia_ip)
 }
 
 ia_ssh_help(){
