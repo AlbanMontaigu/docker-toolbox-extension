@@ -5,16 +5,12 @@
 
     # Copy custom commands to remote host
     provisioner "file" {
-        source = "/vagrant/iaas/config/etc/profile.d/custom-commands.sh"
-        destination = "/etc/profile.d/custom-commands.sh"
-    }
-    provisioner "file" {
-        source = "/vagrant/iaas/config/etc/profile.d/custom-env-vars"
-        destination = "/etc/profile.d/custom-env-vars"
+        source = "/opt/docker-toolbox-extension/iaas/provisioning/common/etc/profile.d/"
+        destination = "/etc/profile.d"
     }
     # Script copy
     provisioner "file" {
-        source = "/vagrant/iaas/config/scripts/prepare-system.sh"
+        source = "/opt/docker-toolbox-extension/iaas/provisioning/common/scripts/prepare-system.sh"
         destination = "/tmp/prepare-system.sh"
     }
     # Script execution
