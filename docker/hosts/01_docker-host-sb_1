@@ -16,4 +16,5 @@ dk_host_sb_1_https_proxy(){
     echo "$(dk_host_sb_1_http_proxy)"
 }
 dk_host_sb_1_no_proxy(){
-    echo "
+    echo ""
+}
