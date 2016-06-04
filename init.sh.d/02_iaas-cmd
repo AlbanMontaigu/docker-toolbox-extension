@@ -37,7 +37,7 @@ ia_tf_help(){
 # Checks if TERRAFORM requirements are here
 ia_tf_check(){
     VAGRANT_IA_ROOT_DIR="/vagrant/iaas"
-    VAGRANT_IA_TF_HOST_DIR="$VAGRANT_IA_ROOT_DIR/terraform/$(dk host)"
+    VAGRANT_IA_TF_HOST_DIR="$VAGRANT_IA_ROOT_DIR/terraform/$(dk_host_id)"
     DKTB_EXTENSION_IA_ROOT_DIR="$DKTB_EXTENSION_DIR/iaas"
 
     # Vagrant iaas dir requested
