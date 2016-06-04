@@ -23,8 +23,12 @@ ia_tf(){
                     --volumes-from docker-toolbox \
                     amontaigu/terraform "$@"
 
-    # Reload host to be sure ip is set
-    dk_host_change "$(dk_host_id)"
+    # Reload host to be sure ip is set where necessary
+    # Note 1: only if ip changes so only when "tf apply"
+    # Note 2: on other cases it can loop because of ia ip call back this code 
+    if [[ "$@" == "apply" ]] ; then
+        dk_host_change "$(dk_host_id)"
+    fi
 }
 
 # Help :)

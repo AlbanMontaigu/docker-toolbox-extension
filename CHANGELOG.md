@@ -2,6 +2,7 @@
 ## 1.11.2 (2016-06-04)
 - Update to docker 1.11.2 on IaaS install
 - BUGFIX: ```ia_tf_check``` now correctly detect profile path with ```dk_host_id``` instead of ```docker host```
+- BUGFIX: loop case fixed in ```ia_tf``` because of ```dk_host_change```
 
 ## 1.11.0-r2 (2016-04-23)
 - Bugfix: docker host ip not set when terraform after host change
