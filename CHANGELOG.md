@@ -1,4 +1,7 @@
 
+## 1.11.2 (2016-06-04)
+- Update to docker 1.11.2 on IaaS install
+
 ## 1.11.0-r2 (2016-04-23)
 - Bugfix: docker host ip not set when terraform after host change
 
