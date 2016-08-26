@@ -1,4 +1,7 @@
 
+## 1.12.1 (2016-08-26)
+- Update to docker 1.12.1 on IaaS install
+
 ## 1.12.0 (2016-07-29)
 - Update to docker 1.12.0 on IaaS install
 
