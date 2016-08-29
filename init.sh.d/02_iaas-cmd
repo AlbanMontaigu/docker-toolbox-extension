@@ -95,14 +95,13 @@ ia_ssh_help(){
 
 # Copy files with scp on the IaaS instance with default key and current ip
 ia_scp(){
-    ia_ssh "rm -fr $2"
     scp -o StrictHostKeyChecking=no -r $1 cloud@$(ia_ip):$2
 }
 
 ia_scp_help(){
     echo "Usage: ia scp source destination"
     echo ""
-    echo "Copy files with scp on the IaaS instance with default key and current ip (it will erease and replace destination !)"
+    echo "Copy files with scp on the IaaS instance with default key and current ip"
 }
 
 
@@ -119,7 +118,7 @@ ia_custom_usage(){
     echo "    tf        All TERRAFORM commands"
     echo "    ip        Show ip of the current instance (depending dk host) on the iaas"
     echo "    ssh       Ssh inside the current IaaS instance (depending dk host) with default keys and current ip"
-    echo "    scp       Copy files with scp on the IaaS instance with default key and current ip (it will erease and replace destination !)"
+    echo "    scp       Copy files with scp on the IaaS instance with default key and current ip"
     echo "    help      Get hep for the specified command"
 }
 
