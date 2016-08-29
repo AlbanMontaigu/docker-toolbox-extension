@@ -88,9 +88,21 @@ ia_ssh(){
 }
 
 ia_ssh_help(){
-    echo "Usage: ia ssh"
+    echo "Usage: ia ssh [PARAM]"
     echo ""
-    echo "Ssh inside the current IaaS instance (depending dk host) with default keys"
+    echo "Ssh inside the current IaaS instance (depending dk host) with default key and ip"
+}
+
+# Copy files with scp on the IaaS instance with default key and current ip
+ia_scp(){
+    ia_ssh "rm -fr $2"
+    scp -o StrictHostKeyChecking=no -r $1 cloud@$(ia_ip):$2
+}
+
+ia_scp_help(){
+    echo "Usage: ia scp source destination"
+    echo ""
+    echo "Copy files with scp on the IaaS instance with default key and current ip (it will erease and replace destination !)"
 }
 
 
@@ -106,7 +118,8 @@ ia_custom_usage(){
     echo "Commands:"
     echo "    tf        All TERRAFORM commands"
     echo "    ip        Show ip of the current instance (depending dk host) on the iaas"
-    echo "    ssh       Ssh inside the current IaaS instance (depending dk host) with default keys"
+    echo "    ssh       Ssh inside the current IaaS instance (depending dk host) with default keys and current ip"
+    echo "    scp       Copy files with scp on the IaaS instance with default key and current ip (it will erease and replace destination !)"
     echo "    help      Get hep for the specified command"
 }
 
@@ -121,6 +134,8 @@ ia_help(){
         ip) ia_ip_help
             ;;
         ssh) ia_ssh_help
+            ;;
+        scp) ia_scp_help
             ;;
     esac
 }
@@ -137,6 +152,8 @@ ia(){
         ip) ia_ip
             ;;
         ssh) ia_ssh "$2"
+            ;;
+        scp) ia_scp "$2"
             ;;
         help) ia_help "$2"
             ;;
