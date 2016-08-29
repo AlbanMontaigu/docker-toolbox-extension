@@ -88,7 +88,7 @@ ia_ssh(){
 }
 
 ia_ssh_help(){
-    echo "Usage: ia ssh [PARAM]"
+    echo "Usage: ia ssh [options]"
     echo ""
     echo "Ssh inside the current IaaS instance (depending dk host) with default key and ip"
 }
