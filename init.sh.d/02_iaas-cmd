@@ -16,7 +16,7 @@ ia_tf(){
 
     # Terraform must be run @local
     DOCKER_HOST="$(dk_host_local)" docker run --rm \
-                    -v "/vagrant/iaas/terraform/$(dk_host_id)":/data \
+                    -v "$VAGRANT_IA_TF_ROOT_DIR/$(dk_host_id)":/data \
                     -e "http_proxy=$http_proxy" \
                     -e "https_proxy=$https_proxy" \
                     -e "no_proxy=$no_proxy" \
@@ -40,9 +40,7 @@ ia_tf_help(){
 
 # Checks if TERRAFORM requirements are here
 ia_tf_check(){
-    VAGRANT_IA_ROOT_DIR="/vagrant/iaas"
-    VAGRANT_IA_TF_HOST_DIR="$VAGRANT_IA_ROOT_DIR/terraform/$(dk_host_id)"
-    DKTB_EXTENSION_IA_ROOT_DIR="$DKTB_EXTENSION_DIR/iaas"
+    VAGRANT_IA_TF_HOST_DIR="$VAGRANT_IA_TF_ROOT_DIR/$(dk_host_id)"
 
     # Vagrant iaas dir requested
     if [ ! -d $VAGRANT_IA_ROOT_DIR ] ; then
@@ -104,6 +102,29 @@ ia_scp_help(){
     echo "Copy files with scp on the IaaS instance with default key and current ip"
 }
 
+# Files / folder push from local host to current remote IaaS host
+ia_fpush(){
+    ia_scp $VAGRANT_IA_FPUSH_ROOT_DIR/* "$(cat ${VAGRANT_IA_FPUSH_ROOT_DIR}/IAAS_REMOTE_FOLDER)"
+}
+
+ia_fpush_help(){
+    echo "Usage: ia fpush"
+    echo ""
+    echo "Files / folder push from local host to current remote IaaS host"
+}
+
+# Same fpush but with a rm -fr on the remoste IaaS dest folder before
+ia_cfpush(){
+    ia_ssh "rm -fr $(cat ${VAGRANT_IA_FPUSH_ROOT_DIR}/IAAS_REMOTE_FOLDER)"
+    ia_fpush
+}
+
+ia_cfpush_help(){
+    echo "Usage: ia cfpush"
+    echo ""
+    echo "Same fpush but with a rm -fr on the remoste IaaS dest folder before"
+}
+
 
 # ------------------------------------------------------------
 # Show ia usage + information about commands
@@ -119,6 +140,8 @@ ia_custom_usage(){
     echo "    ip        Show ip of the current instance (depending dk host) on the iaas"
     echo "    ssh       Ssh inside the current IaaS instance (depending dk host) with default keys and current ip"
     echo "    scp       Copy files with scp on the IaaS instance with default key and current ip"
+    echo "    fpush     Files / folder push from local /vagrant/iaas/fpush to current remote IAAS_REMOTE_FOLDER"
+    echo "    cfpush    Same fpush but with a rm -fr on the remoste IaaS dest folder before"
     echo "    help      Get hep for the specified command"
 }
 
@@ -135,6 +158,10 @@ ia_help(){
         ssh) ia_ssh_help
             ;;
         scp) ia_scp_help
+            ;;
+        fpush) ia_fpush_help
+            ;;
+        cfpush) ia_cfpush_help
             ;;
     esac
 }
@@ -153,6 +180,10 @@ ia(){
         ssh) ia_ssh "$2"
             ;;
         scp) ia_scp "$2"
+            ;;
+        fpush) ia_fpush
+            ;;
+        cfpush) ia_cfpush
             ;;
         help) ia_help "$2"
             ;;

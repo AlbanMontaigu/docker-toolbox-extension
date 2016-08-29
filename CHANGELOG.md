@@ -3,7 +3,9 @@
 - Documentation upgrade
 - Now display host id in ```ia``` commands
 - Now ```ia ssh``` now takes a parameter
-- Added ```ia scp``` command
+- Added ```ia scp``` command to copy files from local to remote host
+- Added ```ia fpush``` command to copy files from local to remote host with predefined source and dest folders
+- Added ```ia cfpush``` same than fpush but with a remote ```rm -fr``` on the dest folder before
 
 ## 1.12.1 (2016-08-26)
 - Update to docker 1.12.1 on IaaS install
