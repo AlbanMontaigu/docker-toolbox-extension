@@ -1,4 +1,8 @@
 
+## 1.12.1b (2016-08-29)
+- Documentation upgrade
+- Now display host id in ```ia``` commands
+
 ## 1.12.1 (2016-08-26)
 - Update to docker 1.12.1 on IaaS install
 
