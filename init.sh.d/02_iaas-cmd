@@ -84,7 +84,7 @@ ia_ip_help(){
 
 # Ssh into IaaS instance with default key and current ip
 ia_ssh(){
-    ssh -o StrictHostKeyChecking=no cloud@$(ia_ip)
+    ssh -o StrictHostKeyChecking=no cloud@$(ia_ip) $1
 }
 
 ia_ssh_help(){
