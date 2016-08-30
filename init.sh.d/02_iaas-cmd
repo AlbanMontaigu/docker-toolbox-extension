@@ -104,7 +104,14 @@ ia_scp_help(){
 
 # Files / folder push from local host to current remote IaaS host
 ia_fpush(){
-    ia_scp $VAGRANT_IA_FPUSH_ROOT_DIR/. "$(cat ${VAGRANT_IA_FPUSH_ROOT_DIR}/IAAS_REMOTE_FOLDER)/"
+    VAGRANT_IA_FPUSH_DIR="$VAGRANT_IA_FPUSH_ROOT_DIR/$(dk_host_id)"
+    if [ -d "$VAGRANT_IA_FPUSH_DIR" ]; then
+        ia_scp $VAGRANT_IA_FPUSH_DIR/. "$(cat ${VAGRANT_IA_FPUSH_ROOT_DIR}/IAAS_REMOTE_FOLDER)/"
+        return 0
+    else
+        echo "[ERROR] $VAGRANT_IA_FPUSH_DIR folder not found"
+        return 1
+    fi
 }
 
 ia_fpush_help(){

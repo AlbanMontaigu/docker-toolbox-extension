@@ -2,6 +2,7 @@
 ## 1.12.1c (2016-08-29)
 - Additional space added in shell info for ```ia``` command
 - BUGFIX: ```ia fpush``` file not found
+- Now ```ia fpush``` takes in accound ```dk host id``` to search inside matching subdirectory inside fpush
 
 ## 1.12.1b (2016-08-29)
 - Documentation upgrade
