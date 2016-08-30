@@ -104,7 +104,7 @@ ia_scp_help(){
 
 # Files / folder push from local host to current remote IaaS host
 ia_fpush(){
-    ia_scp $VAGRANT_IA_FPUSH_ROOT_DIR/* "$(cat ${VAGRANT_IA_FPUSH_ROOT_DIR}/IAAS_REMOTE_FOLDER)"
+    ia_scp $VAGRANT_IA_FPUSH_ROOT_DIR/. "$(cat ${VAGRANT_IA_FPUSH_ROOT_DIR}/IAAS_REMOTE_FOLDER)/"
 }
 
 ia_fpush_help(){
