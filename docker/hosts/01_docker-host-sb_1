@@ -7,7 +7,7 @@
 
 # Docker on Iaas sb column 1 host
 dk_host_sb_1(){
-    echo "tcp://$(ia ip):2375"
+    echo "tcp://$(ia_ip):2375"
 }
 dk_host_sb_1_http_proxy(){
     echo ""
