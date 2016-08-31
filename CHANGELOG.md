@@ -1,4 +1,7 @@
 
+## 1.12.1d (2016-08-31)
+- BUGFIX: dk host definition fixed, now calling directly ```ia_ip``` and avoid pollution comming from ```ia ip```
+
 ## 1.12.1c (2016-08-29)
 - Additional space added in shell info for ```ia``` command
 - BUGFIX: ```ia fpush``` file not found
