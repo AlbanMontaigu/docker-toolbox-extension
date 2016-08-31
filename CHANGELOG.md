@@ -1,5 +1,6 @@
 
 ## 1.12.1d (2016-08-31)
+- Now additional iaas profiles are in **iaas-config-template** project
 - BUGFIX: dk host definition fixed, now calling directly ```ia_ip``` and avoid pollution comming from ```ia ip```
 - BUGFIX: ```ia ip``` won't show current docker host anymore, will be integrated in docker-toolbox prompt
 
