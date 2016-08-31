@@ -178,7 +178,6 @@ ia_help(){
 # IasS commands
 # ------------------------------------------------------------
 ia(){
-    echo "[ia@$(dk_host_id)] \c"
     case "$1" in
         tf) ia_tf "${@:2}" # All params starting at number 2
             ;;
