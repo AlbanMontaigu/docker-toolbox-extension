@@ -1,4 +1,7 @@
 
+## 1.12.1e (2016-09-31)
+- Switch to version 1.12.1e to be consistent with other tools
+
 ## 1.12.1d (2016-08-31)
 - Now additional iaas profiles are in **iaas-config-template** project
 - BUGFIX: dk host definition fixed, now calling directly ```ia_ip``` and avoid pollution comming from ```ia ip```
