@@ -1,5 +1,8 @@
 
-## 1.12.1e (2016-09-31)
+## 1.12.1f (2016-09-13)
+- FEATURE: Added docker hosts extension capability in your project by adding doker hosts folder in iaas folder.
+
+## 1.12.1e (2016-08-31)
 - Switch to version 1.12.1e to be consistent with other tools
 
 ## 1.12.1d (2016-08-31)
