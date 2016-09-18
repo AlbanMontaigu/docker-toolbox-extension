@@ -12,7 +12,7 @@ List of docker hosts definition.
 
 Basically one host per file that can be called with the command ```dk host FILE_SUFFIX```.
 
-```FILE_SUFFIX``` corresponds to ```sb_1``` if the file is named ```01_docker-host-sb_1```. You should respect this naming convention to allow host definition working.
+```FILE_SUFFIX``` corresponds to ```sb_1``` if the file is named ```01_docker-host-sb_1.sh```. You should respect this naming convention to allow host definition working.
 
 You can add the files you want as much as you want depending the various host you want to address.
 
