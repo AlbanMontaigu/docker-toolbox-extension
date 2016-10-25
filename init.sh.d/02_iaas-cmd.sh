@@ -21,7 +21,7 @@ ia_tf(){
                     -e "https_proxy=$https_proxy" \
                     -e "no_proxy=$no_proxy" \
                     --volumes-from docker-toolbox \
-                    amontaigu/terraform "$@"
+                    amontaigu/terraform:0.6.16 "$@"
 
     # Reload host to be sure ip is set where necessary
     # Note 1: only if ip changes so only when "tf apply"
