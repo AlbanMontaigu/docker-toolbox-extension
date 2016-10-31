@@ -17,9 +17,6 @@ ia_tf(){
     # Terraform must be run @local
     DOCKER_HOST="$(dk_host_local)" docker run --rm \
                     -v "$VAGRANT_IA_TF_ROOT_DIR/$(dk_host_id)":/data \
-                    -e "http_proxy=$http_proxy" \
-                    -e "https_proxy=$https_proxy" \
-                    -e "no_proxy=$no_proxy" \
                     --volumes-from docker-toolbox \
                     amontaigu/terraform:0.6.16 "$@"
 

@@ -1,6 +1,7 @@
 
 ## 1.12.3 (2016-10-31)
 - UPDATE: update to docker 1.12.3 on IaaS install
+- UPDATE: now ```ia tf``` commands won't set manually a proxy because you should rely on transparent proxy service (more easy / flexible). Think to enable this service if requested with your vagrant b2d template.
 
 ## 1.12.1f (2016-09-19)
 - FEATURE: Added docker hosts extension capability in your project by adding doker hosts folder in iaas folder.
