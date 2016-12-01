@@ -14,10 +14,12 @@ ia_tf(){
         return 1
     fi
 
-    # Terraform must be run @local
+    # Note 1: Terraform must be run @local
+    # Note 2: $(hostname) contains current container id so it is used fro
+    # volumes-from and get dk tb /vagrant /opt files necessary for the iaas
     DOCKER_HOST="$(dk_host_local)" docker run --rm \
                     -v "$VAGRANT_IA_TF_ROOT_DIR/$(dk_host_id)":/data \
-                    -v /vagrant:/vagrant \
+                    --volumes-from $(hostname) \
                     amontaigu/terraform:0.6.16 "$@"
 
     # Reload host to be sure ip is set where necessary
