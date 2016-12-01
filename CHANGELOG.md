@@ -1,5 +1,5 @@
 
-## 1.12.3 (2016-12.01)
+## 1.12.3 (2016-12-01)
 - BUGFIX: terraform volumes miss /opt from toolbox so switch to volumes from current container
 
 ## 1.12.3 (2016-10-31)
