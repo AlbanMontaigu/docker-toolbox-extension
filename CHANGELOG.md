@@ -1,6 +1,7 @@
 
 ## 1.12.5 (2016-12-26)
 - UPDATE: switch to version 1.12.5 to be consistent with other tools
+- UPDATE: update to docker 1.12.5 on the IaaS
 
 ## 1.12.3 (2016-12-01)
 - BUGFIX: terraform volumes miss /opt from toolbox so switch to volumes from current container
