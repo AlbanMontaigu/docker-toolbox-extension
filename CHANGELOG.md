@@ -1,4 +1,7 @@
 
+## 1.13.0 (2017-01-29)
+- UPDATE: update to docker 1.13.0 on the IaaS
+
 ## 1.12.5 (2016-12-26)
 - UPDATE: update to docker 1.12.5 on the IaaS
 
