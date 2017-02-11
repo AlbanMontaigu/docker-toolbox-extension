@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # Install docker from custom repo prepared in main.tf
-yum -y install docker-engine-1.13.0-1.el7.centos.x86_64
+yum -y install docker-engine-1.13.1-1.el7.centos.x86_64
 
 # Docker installation
 sed -i -e "s%^\[Service\].*%\[Service\]\nEnvironmentFile=-/etc/sysconfig/docker%g" /usr/lib/systemd/system/docker.service
