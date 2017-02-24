@@ -2,6 +2,7 @@
 ## 1.13.1 (2017-02-24)
 - FEATURE: version file added
 - FEATURE: now docker engine start automatically at boot
+- FEATURE: reactivate yum update at install (more long now...)
 
 ## 1.13.1 (2017-02-11)
 - UPDATE: update to docker 1.13.1 on the IaaS

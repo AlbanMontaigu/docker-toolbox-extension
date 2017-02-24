@@ -13,4 +13,4 @@
 mkdir /etc/systemd/system/docker.service.d
 
 # System global update (uncomment to enable if requested)
-#yum -y update
+yum -y update
