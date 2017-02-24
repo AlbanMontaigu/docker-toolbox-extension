@@ -1,4 +1,7 @@
 
+## 1.13.1 (2017-02-24)
+- FEATURE: version file added
+
 ## 1.13.1 (2017-02-11)
 - UPDATE: update to docker 1.13.1 on the IaaS
 
