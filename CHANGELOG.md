@@ -1,7 +1,8 @@
 
 ## 17.03.0-ce (2017-03-10)
 - UPDATE: update to docker 17.03.0-ce on the IaaS
-- UPDATE: update docker-compose alias (same to dk tb)
+- UPDATE: update docker command aliases (same to dk tb)
+- UPDATE: update docker-compose command aliases (same to dk tb)
 - FEATURE: docker-compose 1.11.2 now available
 
 ## 1.13.1 (2017-02-24)
