@@ -1,9 +1,21 @@
 #!/bin/sh
 
-# Install docker from custom repo prepared in main.tf
-yum -y install docker-engine-1.13.1-1.el7.centos.x86_64
+#
+# Docker standard centos install
+# @see https://docs.docker.com/engine/installation/linux/centos/
+#
 
-# Docker installation
+# Ensure required tools are there
+yum install -y yum-utils
+
+# Adds docker repo
+yum-config-manager -y --add-repo https://download.docker.com/linux/centos/docker-ce.repo
+yum makecache fast
+
+# Install docker
+yum install -y docker-ce-17.03.0.ce-1.el7.centos
+
+# Docker installation tuning
 sed -i -e "s%^\[Service\].*%\[Service\]\nEnvironmentFile=-/etc/sysconfig/docker%g" /usr/lib/systemd/system/docker.service
 sed -i -e "s%^ExecStart=.*%ExecStart=/usr/bin/dockerd -H unix:///var/run/docker.sock \$other_args%g" /usr/lib/systemd/system/docker.service
 

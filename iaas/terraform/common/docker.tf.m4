@@ -3,11 +3,6 @@
     # Docker installation
     # --------------------------------------------------------------------
 
-    # Copy docker repo in yum available repo
-    provisioner "file" {
-        source = "/opt/docker-toolbox-extension/iaas/provisioning/common/etc/yum.repos.d/docker.repo"
-        destination = "/etc/yum.repos.d/docker.repo"
-    }
     # Copy docker proxy configuration
     provisioner "file" {
         source = "/opt/docker-toolbox-extension/iaas/provisioning/common/etc/systemd/system/docker.service.d/http-proxy.conf"
