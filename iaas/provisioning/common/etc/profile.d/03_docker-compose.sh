@@ -5,6 +5,56 @@
 
 
 # ------------------------------------------------------------
+# Docker compose up in daemon mode
+# ------------------------------------------------------------
+dc_upd(){
+    sx docker-compose up -d
+}
+
+dc_upd_help(){
+    echo "Usage: dc upd"
+    echo
+    echo "Docker compose up in daemon mode."
+    return 1
+}
+
+
+# ------------------------------------------------------------
+# Deep restart with containers cleaning and images pulling
+# ------------------------------------------------------------
+dc_init(){
+    sx docker-compose stop
+    sx docker-compose rm -f
+    sx docker-compose pull
+    sx docker-compose up -d
+}
+
+dc_init_help(){
+    echo "Usage: dc init"
+    echo
+    echo "Deep restart with containers cleaning and images pulling."
+    return 1
+}
+
+
+# ------------------------------------------------------------
+# Deep restart with containers cleaning
+# ------------------------------------------------------------
+dc_reset(){
+    sx docker-compose stop
+    sx docker-compose rm -f
+    sx docker-compose up -d
+}
+
+dc_reset_help(){
+    echo "Usage: dc reset"
+    echo
+    echo "Deep restart with containers cleaning."
+    return 1
+}
+
+
+# ------------------------------------------------------------
 # Shows or changes compose app prefix
 # ------------------------------------------------------------
 dc_prefix(){
@@ -19,6 +69,7 @@ dc_prefix_help(){
     echo "Usage: dc prefix [NEW_PREFIX]"
     echo
     echo "Shows or changes (if NEW_PREFIX is specified) compose app prefix."
+    return 1
 }
 
 
@@ -27,10 +78,16 @@ dc_prefix_help(){
 # ------------------------------------------------------------
 dc_custom_usage(){
     echo
-    echo "dc = docker-compose utilities for your boot2docker environment."
+    echo "dc = docker-compose alias with enhancements."
+    echo
+    docker-compose 2>&1 >/dev/null | sed 's/docker-compose/dc/g'
     echo
     echo "Custom dc commands:"
+    echo "  upd                Compose up in daemon mode"
+    echo "  init               Deep restart with containers cleaning and images pulling"
+    echo "  reset              Deep restart with containers cleaning"
     echo "  prefix             Shows or changes compose app prefix"
+    return 1
 }
 
 
@@ -39,28 +96,40 @@ dc_custom_usage(){
 # ------------------------------------------------------------
 dc_help(){
     case "$1" in
+        upd) dc_upd_help
+            ;;
+        init) dc_init_help
+            ;;
+        reset) dc_reset_help
+            ;;
         prefix) dc_prefix_help
             ;;
-        "") dc_custom_usage
+        "") docker-compose help
             ;;
-        *) dc_custom_usage
+        *) docker-compose help "$@"
             ;;
     esac
 }
 
 
 # ------------------------------------------------------------
-# Docker compose utilities
+# Docker compose command plus new features for it
 # ------------------------------------------------------------
 dc(){
     case "$1" in
+        upd) dc_upd
+            ;;
+        init) dc_init
+            ;;
+        reset) dc_reset
+            ;;
         prefix) dc_prefix "$2"
             ;;
         help) dc_help "$2"
             ;;
         "") dc_custom_usage
             ;;
-        *) dc_custom_usage
+        *) sx docker-compose "$@"
             ;;
     esac
 }
