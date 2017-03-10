@@ -6,11 +6,11 @@
 #
 
 # Install python prerequisites
-yum install -y epel-release
 yum install -y python-pip
+
+# Upgrade python and pip to avoid any error
+yum upgrade -y python*
+yes | pip install --upgrade pip
 
 # Install docker compose in a specific version
 yes | pip install docker-compose==1.11.2
-
-# Upgrade python if necessary
-yum upgrade -y python*
