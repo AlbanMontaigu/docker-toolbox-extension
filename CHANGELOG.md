@@ -1,4 +1,7 @@
 
+## 17.03.0-ce (2017-03-10)
+- FEATURE: docker-compose 1.11.2 now available
+
 ## 1.13.1 (2017-02-24)
 - FEATURE: version file added
 - FEATURE: now docker engine start automatically at boot

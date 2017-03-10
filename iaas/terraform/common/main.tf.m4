@@ -18,5 +18,6 @@ resource "cloudstack_instance" "iaas-docker-host" {
     # All services definition
     include(/opt/docker-toolbox-extension/iaas/terraform/common/system.tf.m4)
     include(/opt/docker-toolbox-extension/iaas/terraform/common/docker.tf.m4)
+    include(/opt/docker-toolbox-extension/iaas/terraform/common/docker-compose.tf.m4)
 
 }
