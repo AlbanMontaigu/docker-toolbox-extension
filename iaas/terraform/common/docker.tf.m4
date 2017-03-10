@@ -25,3 +25,14 @@
             "/tmp/install-docker.sh"
             ]
     }
+    # Copy file for docker-prune cron with good chmod
+    provisioner "file" {
+        source = "/opt/docker-toolbox-extension/iaas/provisioning/common/etc/cron.daily/docker-prune.cron"
+        destination = "/etc/cron.daily/docker-prune.cron"
+    }
+    provisioner "remote-exec" {
+        inline = [
+            "chmod +x /etc/cron.daily/docker-prune.cron"
+            ]
+    }
+

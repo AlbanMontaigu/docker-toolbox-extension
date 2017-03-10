@@ -5,6 +5,7 @@
 - UPDATE: update docker command aliases (same to dk tb)
 - UPDATE: update docker-compose command aliases (same to dk tb)
 - FEATURE: docker-compose 1.11.2 now available
+- FEATURE: crontab added for docker prune (solves #1)
 
 ## 1.13.1 (2017-02-24)
 - FEATURE: version file added
