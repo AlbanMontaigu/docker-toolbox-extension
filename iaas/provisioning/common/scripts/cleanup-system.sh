@@ -5,4 +5,4 @@
 #
 
 package-cleanup --leaves
-package-cleanup --oldkernels --count=1
+package-cleanup -y --oldkernels --count=1
