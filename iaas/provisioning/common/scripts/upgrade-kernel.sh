@@ -13,7 +13,7 @@ rpm --import https://www.elrepo.org/RPM-GPG-KEY-elrepo.org
 rpm  -Uvh http://www.elrepo.org/elrepo-release-7.0-2.el7.elrepo.noarch.rpm
 
 # Install last kernel
-yum --enablerepo=elrepo-kernel install kernel-ml
+yum -y --enablerepo=elrepo-kernel install kernel-ml
 
 # Activate new kernel on host
 # Kernel should be at least 4.10.x ont the 2017-02-24
