@@ -1,5 +1,5 @@
 
-## 17.03.0-ce (2017-03-10)
+## 17.03.0-ce (2017-03-13)
 - UPDATE: update to docker 17.03.0-ce on the IaaS
 - UPDATE: update command aliases (same to dk tb)
 - UPDATE: update docker command aliases (same to dk tb)
