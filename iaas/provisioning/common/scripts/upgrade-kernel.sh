@@ -20,4 +20,5 @@ yum -y --enablerepo=elrepo-kernel install kernel-ml
 grub2-set-default 0
 
 # Reboot to have effective kernel applied
-reboot
+# For the moment shall be manual to avoid terraform issue with communication link broken
+#reboot

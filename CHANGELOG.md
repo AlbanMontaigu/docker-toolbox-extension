@@ -7,6 +7,7 @@
 - FEATURE: docker-compose 1.11.2 now available
 - FEATURE: crontab added for docker prune (solves #1)
 - FEATURE: main-noscript.tf.m4 added to allow terraform only with IaaS image and no additional script executed
+- FEATURE: main-upgrade-kernel.tf.m4 added to allow kernel update during terraform on the IaaS (manual reboot will be necessary)
 
 ## 1.13.1 (2017-02-24)
 - FEATURE: version file added
