@@ -3,4 +3,4 @@
 #
 # Big cleaning to be sure that the system is clean at any time
 #
-docker system prune
+docker system prune -f
