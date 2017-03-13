@@ -18,3 +18,6 @@ yum -y --enablerepo=elrepo-kernel install kernel-ml
 # Activate new kernel on host
 # Kernel should be at least 4.10.x ont the 2017-02-24
 grub2-set-default 0
+
+# Reboot to have effective kernel applied
+reboot
