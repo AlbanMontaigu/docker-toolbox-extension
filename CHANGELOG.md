@@ -1,9 +1,10 @@
 
-## 17.03.0-ce (2017-03-13)
+## 17.03.0-ce (2017-03-14)
 - UPDATE: update to docker 17.03.0-ce on the IaaS
 - UPDATE: update command aliases (same to dk tb)
 - UPDATE: update docker command aliases (same to dk tb)
 - UPDATE: update docker-compose command aliases (same to dk tb)
+- UPDATE: update to terraform version 0.8.8 with *.tf compatibility modifications
 - FEATURE: docker-compose 1.11.2 now available
 - FEATURE: crontab added for docker prune (solves #1)
 - FEATURE: main-noscript.tf.m4 added to allow terraform only with IaaS image and no additional script executed

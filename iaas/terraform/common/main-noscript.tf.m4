@@ -12,7 +12,7 @@ resource "cloudstack_instance" "iaas-docker-host" {
     # Specific configuration
     include(/data/cloudstack_instance.tf.m4)
 
-    # Cloud init configturation
-    user_data = "${file(\"/opt/docker-toolbox-extension/iaas/provisioning/common/cloud-init/cloud-init.json\")}"
+    # Cloud init configuration
+    user_data = "${file("/opt/docker-toolbox-extension/iaas/provisioning/common/cloud-init/cloud-init.json")}"
 
 }
