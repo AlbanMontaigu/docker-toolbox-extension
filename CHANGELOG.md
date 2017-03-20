@@ -1,4 +1,8 @@
 
+## 17.03.0-ce (2017-03-20)
+- BUGFIX: upgrade-kernel terraform filename fixed
+- BUGFIX: hack to wait for cloud-init completion
+
 ## 17.03.0-ce (2017-03-14)
 - UPDATE: update to docker 17.03.0-ce on the IaaS
 - UPDATE: update command aliases (same to dk tb)

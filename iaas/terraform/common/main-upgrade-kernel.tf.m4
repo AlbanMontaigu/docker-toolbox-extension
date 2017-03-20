@@ -15,6 +15,9 @@ resource "cloudstack_instance" "iaas-docker-host" {
     # Cloud init configuration
     user_data = "${file("/opt/docker-toolbox-extension/iaas/provisioning/common/cloud-init/cloud-init.json")}"
 
+    # Wait for cloud-init finish
+    include(/opt/docker-toolbox-extension/iaas/terraform/common/cloud-init-wait.tf.m4)
+
     # All services definition
     include(/opt/docker-toolbox-extension/iaas/terraform/common/system.tf.m4)
     include(/opt/docker-toolbox-extension/iaas/terraform/common/docker.tf.m4)
