@@ -1,4 +1,7 @@
 
+## 17.03.1-ce (2017-04-07)
+- UPDATE: update to docker 17.03.1-ce on the IaaS
+
 ## 17.03.0-ce (2017-03-20)
 - BUGFIX: upgrade-kernel terraform filename fixed
 - BUGFIX: hack to wait for cloud-init completion
