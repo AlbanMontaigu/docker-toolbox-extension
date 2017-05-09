@@ -20,7 +20,7 @@ ia_tf(){
     DOCKER_HOST="$(dk_host_local)" docker run --rm \
                     -v "$VAGRANT_IA_TF_ROOT_DIR/$(dk_host_id)":/data \
                     --volumes-from $(hostname) \
-                    amontaigu/terraform:0.8.8 "$@"
+                    amontaigu/terraform:0.9.4 "$@"
 
     # Reload host to be sure ip is set where necessary
     # Note 1: only if ip changes so only when "tf apply"
