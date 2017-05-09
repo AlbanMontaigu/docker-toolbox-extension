@@ -1,6 +1,7 @@
 
 ## 17.05.0-ce (2017-05-09)
 - UPDATE: update to docker 17.05.0-ce on the IaaS
+- UPDATE: update to docker-compose 1.13 on the IaaS
 
 ## 17.04.0-ce (2017-04-07)
 - UPDATE: update to docker 17.04.0-ce on the IaaS
