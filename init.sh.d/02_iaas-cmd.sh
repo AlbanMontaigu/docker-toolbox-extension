@@ -119,7 +119,7 @@ ia_fpush_help(){
     echo "Files / folder push from local host to current remote IaaS host"
 }
 
-# Same fpush but with a rm -fr on the remoste IaaS dest folder before
+# Same fpush but with a rm -fr on the remote IaaS dest folder before
 ia_cfpush(){
     ia_ssh "rm -fr $(cat ${VAGRANT_IA_FPUSH_ROOT_DIR}/IAAS_REMOTE_FOLDER)"
     ia_fpush
@@ -147,7 +147,7 @@ ia_custom_usage(){
     echo "    ssh       Ssh inside the current IaaS instance (depending dk host) with default keys and current ip"
     echo "    scp       Copy files with scp on the IaaS instance with default key and current ip"
     echo "    fpush     Files / folder push from local /vagrant/iaas/fpush to current remote IAAS_REMOTE_FOLDER"
-    echo "    cfpush    Same fpush but with a rm -fr on the remoste IaaS dest folder before"
+    echo "    cfpush    Same fpush but with a rm -fr on the remote IaaS dest folder before"
     echo "    help      Get hep for the specified command"
 }
 
