@@ -2,6 +2,7 @@
 ## 17.06.1-ce (2017-08-24)
 - UPDATE: update to docker 17.06.1-ce on the IaaS
 - UPDATE: update to docker-compose 1.15 on the IaaS
+- UPDATE: update to terraform version 0.10.2
 
 ## 17.06.0-ce (2017-07-05)
 - UPDATE: update to docker 17.06.0-ce on the IaaS
