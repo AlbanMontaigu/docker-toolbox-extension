@@ -37,76 +37,6 @@ dk_killa_help(){
 
 
 # ------------------------------------------------------------
-# Delete all stopped containers
-# ------------------------------------------------------------
-dk_cleanc(){
-    exited_containers="$(docker ps -a -q -f status=exited)"
-    if [[ "$exited_containers" == "" ]] ; then
-        echo "No exited container to clean"
-        return 0
-    fi
-    sx docker rm "$exited_containers"
-}
-
-dk_cleanc_help(){
-    echo "Usage: dk cleanc"
-    echo ""
-    echo "Delete all stopped containers."
-}
-
-
-# ------------------------------------------------------------
-# Delete all untagged images
-# ------------------------------------------------------------
-dk_cleani(){
-    untagged_images="$(docker images -q -f dangling=true)"
-    if [[ "$untagged_images" == "" ]] ; then
-        echo "No untagged image to clean"
-        return 0
-    fi
-    sx docker rmi "$untagged_images"
-}
-
-dk_cleani_help(){
-    echo "Usage: dk cleani"
-    echo ""
-    echo "Delete all untagged images."
-}
-
-
-# ------------------------------------------------------------
-# Delete all orphaned volumes
-# ------------------------------------------------------------
-dk_cleanv(){
-    # since sx may broke the pipe
-    echo "[CMD] docker volume ls -qf dangling=true | xargs -r docker volume rm"
-    docker volume ls -qf dangling=true | xargs -r docker volume rm
-}
-
-dk_cleanv_help(){
-    echo "Usage: dk cleanv"
-    echo ""
-    echo "Delete all dangling volumes."
-}
-
-
-# ------------------------------------------------------------
-# Delete all stopped containers and untagged images
-# ------------------------------------------------------------
-dk_clean(){
-    dk_cleanc || true
-    dk_cleani
-    dk_cleanv
-}
-
-dk_clean_help(){
-    echo "Usage: dk clean"
-    echo ""
-    echo "Delete all stopped containers and untagged images."
-}
-
-
-# ------------------------------------------------------------
 # Specific garbage collecting with spotify/docker-gc
 # ------------------------------------------------------------
 dk_gc(){
@@ -158,60 +88,6 @@ dk_shi_help(){
 
 
 # ------------------------------------------------------------
-# See files tree in a container
-# ------------------------------------------------------------
-dk_ls() {
-    if [ $# -eq 2 ]; then
-        sx docker exec -ti $1 /bin/ls -l $2
-    else
-        dk_ls_help
-    fi
-}
-
-dk_ls_help(){
-    echo "Usage: dk ls CONTAINER PATH"
-    echo ""
-    echo "Outputs directory content from inside a container."
-}
-
-
-# ------------------------------------------------------------
-# See files content inside a container
-# ------------------------------------------------------------
-dk_cat() {
-    if [ $# -eq 2 ]; then
-        sx docker exec -ti $1 /bin/cat $2
-    else
-        dk_cat_help
-    fi
-}
-
-dk_cat_help(){
-    echo "Usage: dk cat CONTAINER PATH"
-    echo ""
-    echo "Outputs file content from inside a container."
-}
-
-
-# ------------------------------------------------------------
-# Edit files content inside a container
-# ------------------------------------------------------------
-dk_vi() {
-    if [ $# -eq 2 ]; then
-        sx docker exec -ti $1 /bin/vi $2
-    else
-        dk_vi_help
-    fi
-}
-
-dk_vi_help(){
-    echo "Usage: dk vi CONTAINER PATH"
-    echo ""
-    echo "Edits file content from inside a container."
-}
-
-
-# ------------------------------------------------------------
 # Follow logs of a container
 # ------------------------------------------------------------
 dk_logsf(){
@@ -256,16 +132,9 @@ dk_custom_usage(){
     echo "    ip        Show ip of a docker container"
     echo "    ipull     Update all available images"
     echo "    killa     Kill all running containers"
-    echo "    cleanc    Delete all stopped containers"
-    echo "    cleani    Delete all untagged images"
-    echo "    cleanv    Delete all dangling volumes"
-    echo "    clean     Delete all stopped containers and untagged images"
     echo "    gc        Specific garbage collecting with spotify/docker-gc"
     echo "    shc       Get a shell inside a container"
     echo "    shi       Get a shell in a container started from the specified image"
-    echo "    ls        See files tree in a container"
-    echo "    cat       See files content inside a container"
-    echo "    vi        Edit files content inside a container"
     echo "    logsf     Follow logs of a container"
 }
 
@@ -281,25 +150,11 @@ dk_help(){
             ;;
         killa) dk_killa_help
             ;;
-        cleanc) dk_cleanc_help
-            ;;
-        cleani) dk_cleani_help
-            ;;
-        cleanv) dk_cleanv_help
-            ;;
-        clean) dk_clean_help
-            ;;
         gc) dk_gc_help
             ;;
         shc) dk_shc_help
             ;;
         shi) dk_shi_help
-            ;;
-        ls) dk_ls_help
-            ;;
-        cat) dk_cat_help
-            ;;
-        vi) dk_vi_help
             ;;
         logsf) dk_logsf_help
             ;;
@@ -328,25 +183,11 @@ dk(){
             ;;
         killa) dk_killa
             ;;
-        cleanc) dk_cleanc
-            ;;
-        cleani) dk_cleani
-            ;;
-        cleanv) dk_cleanv
-            ;;
-        clean) dk_clean
-            ;;
         gc) dk_gc
             ;;
         shc) dk_shc "$2"
             ;;
         shi) dk_shi "$2"
-            ;;
-        ls) dk_ls "$2" "$3"
-            ;;
-        cat) dk_cat "$2" "$3"
-            ;;
-        vi) dk_vi "$2" "$3"
             ;;
         logsf) dk_logsf "$2"
             ;;

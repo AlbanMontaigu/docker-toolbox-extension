@@ -1,8 +1,13 @@
 
-## 17.06.1-ce (2017-08-24)
+## 17.06.1-ce (2017-08-245)
 - UPDATE: update to docker 17.06.1-ce on the IaaS
 - UPDATE: update to docker-compose 1.15 on the IaaS
 - UPDATE: update to terraform version 0.10.2
+- UPDATE: `dk cleani` removed on the IaaS please use `docker image prune` instead
+- UPDATE: `dk cleanv` removed on the IaaS please use `docker volume prune` instead
+- UPDATE: `dk cleanc` removed on the IaaS please use `docker container prune` instead
+- UPDATE: `dk clean` removed on the IaaS please use `docker system prune` instead
+- UPDATE: `dk [ls|vi|cat]` removed on the IaaS since they are not convenient / used please use `docker [shi|shc]` and then your command instead
 
 ## 17.06.0-ce (2017-07-05)
 - UPDATE: update to docker 17.06.0-ce on the IaaS
