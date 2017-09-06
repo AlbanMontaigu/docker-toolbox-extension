@@ -13,7 +13,7 @@ yum-config-manager -y --add-repo https://download.docker.com/linux/centos/docker
 yum makecache fast
 
 # Install docker
-yum install -y docker-ce-17.06.1.ce-1.el7.centos
+yum install -y docker-ce-17.06.2.ce-1.el7.centos
 
 # Docker installation tuning
 sed -i -e "s%^\[Service\].*%\[Service\]\nEnvironmentFile=-/etc/sysconfig/docker%g" /usr/lib/systemd/system/docker.service
