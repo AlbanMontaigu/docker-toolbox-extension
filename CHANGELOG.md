@@ -3,6 +3,7 @@
 - UPDATE: update to docker 17.09.0-ce on the IaaS
 - UPDATE: update `dk` commands available to fit to latest `dk tb` equivalent
 - UPDATE: update to terraform version 0.10.7
+- BUGFIX: now `ia ssh` command will produce a proper error if docker host is local instead of remote
 - FEATURE: new `ia fsync` command added to allow auto and regular sync between localhost `iaas/fsync` folder and remote IaaS
 
 ## 17.06.2-ce (2017-09-07)

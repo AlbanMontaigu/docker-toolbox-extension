@@ -82,6 +82,14 @@ ia_ip_help(){
 # Ssh into IaaS instance with default key and current ip
 # ------------------------------------------------------------
 ia_ssh(){
+
+    # Need to be on remote docker host to execute this command
+    if [[ "${DOCKER_HOST_ID}" == "local" ]]; then
+        echo "[ERROR] Current docker host shall be set to a IaaS host"
+        return 1
+    fi
+
+    # SSH command
     ssh -o StrictHostKeyChecking=no cloud@$(ia_ip) $1
 }
 
