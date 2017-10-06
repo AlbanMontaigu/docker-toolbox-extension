@@ -175,6 +175,12 @@ ia_fsync_start(){
     echo "[INFO] Starting replica-slave on the IaaS..."
     docker run -d --rm -p 2222:22 -v /:/var/replica --name replica-slave amontaigu/replica-slave:3.0.0
 
+    # Check all is ok to continue
+    if [[ $? neq 0 ]]; then
+        echo "[ERROR] Unable to start replica-slave properly on the IaaS, is it already running ?"
+        return 2
+    fi
+
     # Start replica-master locally
     echo "[INFO] Starting replica-master locally..."
     DOCKER_HOST="$(dk_host_local)" docker run -d --rm \
@@ -184,6 +190,12 @@ ia_fsync_start(){
                     -e REPLICA_SLAVE_PORT="2222" \
                     --name replica-master \
                     amontaigu/replica-master:3.0.0
+
+    # Check all is ok to finish
+    if [[ $? neq 0 ]]; then
+        echo "[ERROR] Unable to start replica-master properly on localhost, is it already running ?"
+        return 3
+    fi
 }
 
 # Stop fsync containers
