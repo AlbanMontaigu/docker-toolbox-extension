@@ -145,10 +145,66 @@ ia_cfpush_help(){
 # -------------------------------------------------------------------
 # File auto and regular synchronisation between local and IaaS
 # -------------------------------------------------------------------
+
+# Root command
 ia_fsync(){
 
+    # Commands available
+    case "$1" in
+        start) ia_fsync_start
+            ;;
+        stop) ia_fsync_stop
+            ;;
+        help) ia_fsync_help
+            ;;
+        *) ia_fsync_help
+            ;;
+    esac
 }
 
+# Start fsync containers
+ia_fsync_start(){
+
+    # Need to start with slave that shall be on the IaaS
+    if [[ "${DOCKER_HOST_ID}" == "local" ]]; then
+        echo "[ERROR] Current docker host shall be set to a IaaS host"
+        return 1
+    fi
+
+    # Start replica-slave on the remote host
+    echo "[INFO] Starting replica-slave on the IaaS..."
+    docker run -d --rm -p 2222:22 -v /:/var/replica --name replica-slave amontaigu/replica-slave:3.0.0
+
+    # Start replica-master locally
+    echo "[INFO] Starting replica-master locally..."
+    DOCKER_HOST="$(dk_host_local)" docker run -d --rm \
+                    -v "${VAGRANT_IA_FSYNC_ROOT_DIR}":/var/replica \
+                    -e UNISON_PRF_REPEAT="1" \
+                    -e REPLICA_SLAVE_HOST="10.90.250.119" \
+                    -e REPLICA_SLAVE_PORT="2222" \
+                    --name replica-master \
+                    amontaigu/replica-master:3.0.0
+}
+
+# Stop fsync containers
+ia_fsync_stop(){
+
+    # Need to start with slave that shall be on the IaaS
+    if [[ "${DOCKER_HOST_ID}" == "local" ]]; then
+        echo "[ERROR] Current docker host shall be set to a IaaS host"
+        return 1
+    fi
+
+    # Stop replica-slave on the remote host
+    echo "[INFO] Stopping replica-slave on the IaaS..."
+    docker stop replica-slave
+
+    # Stop replica-master locally
+    echo "[INFO] Stopping replica-master locally..."
+    DOCKER_HOST="$(dk_host_local)" docker stop replica-master
+}
+
+# Help
 ia_fsync_help(){
     echo "Usage: ia fsync [start|stop]"
     echo ""

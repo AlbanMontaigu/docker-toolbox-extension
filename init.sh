@@ -8,6 +8,7 @@
 export VAGRANT_IA_ROOT_DIR="/vagrant/iaas"
 export VAGRANT_IA_TF_ROOT_DIR="$VAGRANT_IA_ROOT_DIR/terraform"
 export VAGRANT_IA_FPUSH_ROOT_DIR="$VAGRANT_IA_ROOT_DIR/fpush"
+export VAGRANT_IA_FSYNC_ROOT_DIR="$VAGRANT_IA_ROOT_DIR/fsync"
 export DKTB_EXTENSION_IA_ROOT_DIR="$DKTB_EXTENSION_DIR/iaas"
 
 # -------------------------------------------------------------------
