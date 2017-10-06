@@ -142,6 +142,20 @@ ia_cfpush_help(){
 }
 
 
+# -------------------------------------------------------------------
+# File auto and regular synchronisation between local and IaaS
+# -------------------------------------------------------------------
+ia_fsync(){
+
+}
+
+ia_fsync_help(){
+    echo "Usage: ia fsync [start|stop]"
+    echo ""
+    echo "File auto and regular synchronisation between local and IaaS"
+}
+
+
 # ------------------------------------------------------------
 # Show ia usage + information about commands
 # ------------------------------------------------------------
@@ -158,6 +172,7 @@ ia_custom_usage(){
     echo "    scp       Copy files with scp on the IaaS instance with default key and current ip"
     echo "    fpush     Files / folder push from local /vagrant/iaas/fpush to current remote IAAS_REMOTE_FOLDER"
     echo "    cfpush    Same fpush but with a rm -fr on the remote IaaS dest folder before"
+    echo "    fsync     File auto and regular synchronisation between local and IaaS"
     echo "    help      Get hep for the specified command"
 }
 
@@ -179,6 +194,8 @@ ia_help(){
             ;;
         cfpush) ia_cfpush_help
             ;;
+        fsync) ia_fsync_help
+            ;;
     esac
 }
 
@@ -199,6 +216,8 @@ ia(){
         fpush) ia_fpush
             ;;
         cfpush) ia_cfpush
+            ;;
+        fsync) ia_fsync
             ;;
         help) ia_help "$2"
             ;;
