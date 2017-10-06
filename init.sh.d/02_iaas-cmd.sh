@@ -293,7 +293,7 @@ ia(){
             ;;
         cfpush) ia_cfpush
             ;;
-        fsync) ia_fsync
+        fsync) ia_fsync "$2"
             ;;
         help) ia_help "$2"
             ;;
