@@ -1,4 +1,3 @@
-
 # ============================================================
 # Docker custom commands
 # ============================================================
@@ -33,21 +32,6 @@ dk_killa_help(){
     echo "Usage: dk killa"
     echo ""
     echo "Kill all running containers."
-}
-
-
-# ------------------------------------------------------------
-# Specific garbage collecting with spotify/docker-gc
-# ------------------------------------------------------------
-dk_gc(){
-    sx docker pull spotify/docker-gc
-    sx docker run --rm -v /var/run/docker.sock:/var/run/docker.sock spotify/docker-gc
-}
-
-dk_gc_help(){
-    echo "Usage: dk gc"
-    echo ""
-    echo "Specific garbage collecting with spotify/docker-gc."
 }
 
 
@@ -132,10 +116,10 @@ dk_custom_usage(){
     echo "    ip        Show ip of a docker container"
     echo "    ipull     Update all available images"
     echo "    killa     Kill all running containers"
-    echo "    gc        Specific garbage collecting with spotify/docker-gc"
     echo "    shc       Get a shell inside a container"
     echo "    shi       Get a shell in a container started from the specified image"
     echo "    logsf     Follow logs of a container"
+    echo "    host      Changes or shows where the docker client is connected"
 }
 
 
@@ -150,13 +134,13 @@ dk_help(){
             ;;
         killa) dk_killa_help
             ;;
-        gc) dk_gc_help
-            ;;
         shc) dk_shc_help
             ;;
         shi) dk_shi_help
             ;;
         logsf) dk_logsf_help
+            ;;
+        host) dk_host_help
             ;;
         "--help") docker
             ;;
@@ -172,10 +156,14 @@ dk_help(){
 # Docker command plus new features for it
 # ------------------------------------------------------------
 dk(){
+
+    # Check if help is requested
     if [[ "${@: -1}" == "--help" ]] ; then
         dk_help "$1"
         return 0
     fi
+
+    # Select with command to execute
     case "$1" in
         ip) dk_ip "$2"
             ;;
@@ -183,13 +171,13 @@ dk(){
             ;;
         killa) dk_killa
             ;;
-        gc) dk_gc
-            ;;
         shc) dk_shc "$2"
             ;;
         shi) dk_shi "$2"
             ;;
         logsf) dk_logsf "$2"
+            ;;
+        host) dk_host "$2"
             ;;
         "") dk_custom_usage
             ;;

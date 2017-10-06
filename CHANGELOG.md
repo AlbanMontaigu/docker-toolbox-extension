@@ -1,4 +1,7 @@
 
+## 17.09.0-ce (2017-10-06)
+- UPDATE: update `dk` commands available to fit to latest `dk tb` equivalent
+
 ## 17.06.2-ce (2017-09-07)
 - UPDATE: update to docker 17.06.2-ce on the IaaS
 - UPDATE: update to docker-compose 1.16.1 on the IaaS
