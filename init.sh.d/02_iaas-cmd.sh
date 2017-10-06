@@ -184,7 +184,7 @@ ia_fsync_start(){
     docker run -d --rm -p 2222:22 -v /:/var/replica --name replica-slave amontaigu/replica-slave:3.0.0
 
     # Check all is ok to continue
-    if [[ $? neq 0 ]]; then
+    if [[ $? -ne 0 ]]; then
         echo "[ERROR] Unable to start replica-slave properly on the IaaS, is it already running ?"
         return 2
     fi
@@ -200,7 +200,7 @@ ia_fsync_start(){
                     amontaigu/replica-master:3.0.0
 
     # Check all is ok to finish
-    if [[ $? neq 0 ]]; then
+    if [[ $? -ne 0 ]]; then
         echo "[ERROR] Unable to start replica-master properly on localhost, is it already running ?"
         return 3
     fi
