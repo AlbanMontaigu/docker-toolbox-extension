@@ -65,10 +65,8 @@ ia_tf_check(){
 
 
 # ------------------------------------------------------------
-# Additional commands to connect and manage IaaS instance
+# Get the ip of the current IaaS instance
 # ------------------------------------------------------------
-
-# Get the ip of the current iaas instance
 ia_ip(){
     ia_tf show | grep -oE '((1?[0-9][0-9]?|2[0-4][0-9]|25[0-5])\.){3}(1?[0-9][0-9]?|2[0-4][0-9]|25[0-5])'
 }
@@ -79,7 +77,10 @@ ia_ip_help(){
     echo "Show ip of the current instance (depending dk host) on the iaas"
 }
 
+
+# ------------------------------------------------------------
 # Ssh into IaaS instance with default key and current ip
+# ------------------------------------------------------------
 ia_ssh(){
     ssh -o StrictHostKeyChecking=no cloud@$(ia_ip) $1
 }
@@ -90,7 +91,10 @@ ia_ssh_help(){
     echo "Ssh inside the current IaaS instance (depending dk host) with default key and ip"
 }
 
+
+# -------------------------------------------------------------------------
 # Copy files with scp on the IaaS instance with default key and current ip
+# -------------------------------------------------------------------------
 ia_scp(){
     scp -o StrictHostKeyChecking=no -r $1 cloud@$(ia_ip):$2
 }
@@ -101,7 +105,10 @@ ia_scp_help(){
     echo "Copy files with scp on the IaaS instance with default key and current ip"
 }
 
+
+# ----------------------------------------------------------------
 # Files / folder push from local host to current remote IaaS host
+# ----------------------------------------------------------------
 ia_fpush(){
     VAGRANT_IA_FPUSH_DIR="$VAGRANT_IA_FPUSH_ROOT_DIR/$(dk_host_id)"
     if [ -d "$VAGRANT_IA_FPUSH_DIR" ]; then
@@ -119,7 +126,10 @@ ia_fpush_help(){
     echo "Files / folder push from local host to current remote IaaS host"
 }
 
+
+# -------------------------------------------------------------------
 # Same fpush but with a rm -fr on the remote IaaS dest folder before
+# -------------------------------------------------------------------
 ia_cfpush(){
     ia_ssh "rm -fr $(cat ${VAGRANT_IA_FPUSH_ROOT_DIR}/IAAS_REMOTE_FOLDER)"
     ia_fpush
