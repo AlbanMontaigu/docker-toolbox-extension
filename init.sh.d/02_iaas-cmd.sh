@@ -206,7 +206,7 @@ ia_fsync_stop(){
 
 # Help
 ia_fsync_help(){
-    echo "Usage: ia fsync [start|stop]"
+    echo "Usage: ia fsync <start|stop>"
     echo ""
     echo "File auto and regular synchronisation between local and IaaS"
 }
