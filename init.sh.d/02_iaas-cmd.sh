@@ -198,7 +198,7 @@ ia_fsync_start(){
     DOCKER_HOST="$(dk_host_local)" docker run -d --rm \
                     -v "${REPLICA_MASTER_PATH}":/var/replica \
                     -e UNISON_PRF_REPEAT="1" \
-                    -e REPLICA_SLAVE_HOST="10.90.250.119" \
+                    -e REPLICA_SLAVE_HOST="$(ia_ip)" \
                     -e REPLICA_SLAVE_PORT="2222" \
                     --name replica-master \
                     amontaigu/replica-master:3.0.0
