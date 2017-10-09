@@ -188,11 +188,15 @@ ia_fsync_start(){
         echo "[ERROR] Unable to start replica-slave properly on the IaaS, is it already running ?"
         return 2
     fi
+    
+    # Be sure to have the local path available for replica-master
+    REPLICA_MASTER_PATH="${VAGRANT_IA_FSYNC_ROOT_DIR}/$(dk_host --id)"
+    mkdir -p "${REPLICA_MASTER_PATH}"
 
     # Start replica-master locally
     echo "[INFO] Starting replica-master locally..."
     DOCKER_HOST="$(dk_host_local)" docker run -d --rm \
-                    -v "${VAGRANT_IA_FSYNC_ROOT_DIR}":/var/replica \
+                    -v "${REPLICA_MASTER_PATH}":/var/replica \
                     -e UNISON_PRF_REPEAT="1" \
                     -e REPLICA_SLAVE_HOST="10.90.250.119" \
                     -e REPLICA_SLAVE_PORT="2222" \
