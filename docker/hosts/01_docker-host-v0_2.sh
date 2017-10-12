@@ -5,7 +5,7 @@
 #        definitions
 # ============================================================
 
-# Docker on Iaas v0 column 2 host
+# Docker on IaaS v0 column 2 host
 dk_host_v0_2(){
     echo "tcp://$(ia_ip):2375"
 }

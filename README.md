@@ -6,20 +6,20 @@
 
 Files and component to dynamically extend your [docker-toolbox](https://github.com/AlbanMontaigu/docker-toolbox).
 
-At the time beeing this extension provides only additional docker host definition to help you defining custom profiles that you can couple with IaaS management.
+At the time being this extension provides only additional docker host definition to help you defining custom profiles that you can couple with IaaS management.
 
 **This extension is mainly built around:**
  - IaaS management with **Cloudstack**
  - **Terraform** commands connected to remote Cloudstack API
  - **CentOS 7** vm template on the IaaS
  - 2 hosts *(for 2 columns simulation)*
- - 2 profiles, 1 sandbox = sb, 1 qualification = v0
+ - 1 profile built-in for qualification = v0
 
 ## Available commands
 
 Each command has integrated help, just type the command to see detailed usage.
 
-At the time beeing this extension provides the ```ia``` main command.
+At the time being this extension provides the ```ia``` main command.
 
 ## Files and folders description
 

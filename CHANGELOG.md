@@ -1,4 +1,8 @@
 
+## 17.09.0-ce (2017-10-12)
+- UPDATE: common terraform files to be included by m4 are now `*.tf.inc.m4` 
+- UPDATE: `sb_*` profile removed
+
 ## 17.09.0-ce (2017-10-09)
 - UPDATE: now `ia fsync` will use sub path matching with `dk host --id` to take in account profiles differences
 - BUGFIX: now use correct ip for `ia fsync`

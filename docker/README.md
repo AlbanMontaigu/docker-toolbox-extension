@@ -1,6 +1,6 @@
 # docker folder
 
-## Desription
+## Description
 
 Contains all docker related extension files.
 
@@ -12,11 +12,11 @@ List of docker hosts definition.
 
 Basically one host per file that can be called with the command ```dk host FILE_SUFFIX```.
 
-```FILE_SUFFIX``` corresponds to ```sb_1``` if the file is named ```01_docker-host-sb_1.sh```. You should respect this naming convention to allow host definition working.
+```FILE_SUFFIX``` corresponds to ```v0_1``` if the file is named ```01_docker-host-v0_1.sh```. You should respect this naming convention to allow host definition working.
 
 You can add the files you want as much as you want depending the various host you want to address.
 
-**The file shloud be built like this:**
+**The file should be built like this:**
 
 ```bash
 # ============================================================
@@ -26,17 +26,17 @@ You can add the files you want as much as you want depending the various host yo
 #        definitions
 # ============================================================
 
-# Docker on Iaas sb column 1 host
-dk_host_sb_1(){
-    echo "tcp://$(ia ip):2375"
+# Docker on IaaS v0 column 1 host
+dk_host_v0_1(){
+    echo "tcp://$(ia_ip):2375"
 }
-dk_host_sb_1_http_proxy(){
+dk_host_v0_1_http_proxy(){
     echo ""
 }
-dk_host_sb_1_https_proxy(){
-    echo "$(dk_host_sb_1_http_proxy)"
+dk_host_v0_1_https_proxy(){
+    echo "$(dk_host_v0_1_http_proxy)"
 }
-dk_host_sb_1_no_proxy(){
+dk_host_v0_1_no_proxy(){
     echo ""
 }
 ```
