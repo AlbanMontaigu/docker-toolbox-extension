@@ -3,6 +3,9 @@
 - UPDATE: bump to docker 18.03.0-ce
 - UPDATE: bump to docker 18.03.0-ce on the IaaS
 - UPDATE: bump to docker-compose 1.20.1 on the IaaS
+- UPDATE: cloud-init stuff removed (simplification)
+- UPDATE: no more ssh keys, switch to default password (simplification)
+- UPDATE: no more kernel upgrade stuff (simplification)
 
 ## 17.12.0-ce (2018-02-12)
 - UPDATE: update to docker 17.12.0-ce
