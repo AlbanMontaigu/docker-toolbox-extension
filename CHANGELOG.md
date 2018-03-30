@@ -2,6 +2,7 @@
 ## 18.03.0-ce (2018-03-30)
 - UPDATE: bump to docker 18.03.0-ce
 - UPDATE: bump to docker 18.03.0-ce on the IaaS
+- UPDATE: bump to docker-compose 1.20.1 on the IaaS
 
 ## 17.12.0-ce (2018-02-12)
 - UPDATE: update to docker 17.12.0-ce
