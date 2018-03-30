@@ -5,10 +5,8 @@ All common files to be included via `m4` (explain the `*.tf.inc.m4` for terrafor
 **Note:** template is based on CentOS
 
 - `cleanup-system.tf.inc.m4` to do a post install cleanup on the system
-- `cloud-init-wait.tf.inc.m4` trick to allow to trap the end of cloud init
 - `docker.tf.inc.m4` docker engine installation
 - `docker-compose.tf.inc.m4` docker-compose installation
 - `main.tf.inc.m4` main terraform file for an standard full installation
 - `main-noscript.tf.inc.m4` main terraform file with minimum instruction with no install steps (meaning all shall be already included in the VM template)
-- `main-upgrade-kernel.tf.inc.m4` main terraform  file specific steps to include linux kernel upgrade
 - `system.inc.tf.m4` instructions to do system installation
