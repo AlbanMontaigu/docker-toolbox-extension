@@ -1,8 +1,11 @@
 
+## 18.03.0-ce (2018-03-30)
+- UPDATE: bump to docker 18.03.0-ce
+
 ## 17.12.0-ce (2018-02-12)
 - UPDATE: update to docker 17.12.0-ce
 - UPDATE: update to docker 17.12.0-ce on the IaaS
-- UPDATe: update to docker-compose 1.19.0 on the IaaS
+- UPDATE: update to docker-compose 1.19.0 on the IaaS
 
 ## 17.09.0-ce (2017-10-12)
 - UPDATE: common terraform files to be included by m4 are now `*.tf.inc.m4` 
