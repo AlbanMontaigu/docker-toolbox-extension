@@ -1,6 +1,7 @@
 
 ## 18.03.1-ce (2018-05-01)
 - UPDATE: bump to docker 18.03.1-ce
+- UPDATE: bump to docker 18.03.1-ce on the IaaS
 
 ## 18.03.0-ce (2018-04-13)
 - BUGFIX: script for ssh key removed (missed when ssh keys where removed)
