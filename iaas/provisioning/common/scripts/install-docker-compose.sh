@@ -13,4 +13,4 @@ yum upgrade -y python*
 yes | pip install --upgrade pip
 
 # Install docker compose in a specific version
-yes | pip install docker-compose==1.20.1
+yes | pip install docker-compose==1.21.1
