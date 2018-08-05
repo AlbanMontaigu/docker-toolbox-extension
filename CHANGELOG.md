@@ -1,6 +1,7 @@
 
 ## 18.06.0-ce (2018-08-05)
 - UPDATE: bump to docker 18.06.0-ce
+- UPDATE: bump to docker 18.06.0-ce on the IaaS
 
 ## 18.03.1-ce (2018-05-01)
 - UPDATE: bump to docker 18.03.1-ce
